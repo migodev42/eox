@@ -1,0 +1,42 @@
+{
+    "name": "eox",
+    "version": "0.0.1",
+    "description": "react state management based on basic hooks api",
+    "main": "src/index.js",
+    "dependencies": {
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "typescript": "^3.9.3"
+    },
+    "devDependencies": {
+        "@types/react": "^16.9.35",
+        "@typescript-eslint/eslint-plugin": "^2.34.0",
+        "@typescript-eslint/parser": "^2.34.0",
+        "eslint": "^7.0.0",
+        "eslint-plugin-react": "^7.20.0",
+        "eslint-plugin-react-hooks": "^4.0.2",
+        "jest": "^26.0.1",
+        "next": "^9.4.2"
+    },
+    "scripts": {
+        "nextdev": "next",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint ./src/*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LeoooY/eox.git"
+    },
+    "keywords": [
+        "react",
+        "hooks",
+        "state",
+        "management"
+    ],
+    "author": "LeoooY",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/LeoooY/eox/issues"
+    },
+    "homepage": "https://github.com/LeoooY/eox#readme"
+}
