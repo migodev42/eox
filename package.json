@@ -15,11 +15,9 @@
         "eslint": "^7.0.0",
         "eslint-plugin-react": "^7.20.0",
         "eslint-plugin-react-hooks": "^4.0.2",
-        "jest": "^26.0.1",
-        "next": "^9.4.2"
+        "jest": "^26.0.1"
     },
     "scripts": {
-        "nextdev": "next",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint ./src/*"
     },
