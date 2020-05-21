@@ -1,12 +1,14 @@
 # eox
-react state management based on basic hooks api.
+easy react state management based on hooks api.
+<!-- > e -> leo  o -> hooks x -> redux -->
 
-> e -> leo  o -> hooks x -> redux
 ## install
-```
+
+``` 
 yarn add eox
 npm install eox
 ```
+
 ## example
 
 * `init` 
@@ -70,14 +72,26 @@ const App = () => {
 import React, { useContext } from 'react';
 import { Context } from 'context.js'
 
-const Child = () => {
-    const { state, dispatch } = useContext(Context)
+const Child = ({counta}) => {
     return (
         <div>
-            a:{state.a}
-            b:{state.b}
+            a:{counta}
             <button onClick={()=>dispatch({ type: 'addA' })}>add a</button>
         </div>
     )
 }
+export default withContext(Child,Contex,{
+    dispatch: ctx => ctx.dispatch,
+    counta: ctx => ctx.state.a,
+})
 ```
+
+## F&Q
+
+* How to avoid unneccesary re-render?
+
+when a component call `useContext` , every update on `context` will call our component re-render. 
+1 Split contexts that don't change together
+2 Split your component in two, put `memo` in between
+3 One component with `useMemo` inside
+[see this issue](https://github.com/facebook/react/issues/15156)
