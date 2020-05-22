@@ -30,7 +30,7 @@ const App = () => {
 /* Child.js */
 import { withContext } from 'eox';
 import { Context } from 'context.js'
-export default withContext(Child,Contex,{
+export default withContext(Child,Context,{
     dispatch: ctx => ctx.dispatch,
     state: ctx => ctx.state,
 })
