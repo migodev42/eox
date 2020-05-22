@@ -14,6 +14,7 @@ You can find the Eox documentation [on the website](https://leoooy.github.io/eox
 ## Examples
 ``` javascript
 /* context.js */
+import { createProvider } from 'eox';
 const { Provider, Context } = createProvider(reducers, initState);
 
 /* APP.js */
