@@ -4,8 +4,8 @@ Easy react state management based on hooks api.
 ## Installation
 
 ``` 
-yarn add eox
-npm install eox
+yarn add @leoooy/eox
+npm install @leoooy/eox
 ```
 
 ## Documentation
