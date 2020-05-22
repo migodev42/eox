@@ -4,7 +4,6 @@
     "description": "easy react state management based on hooks api.",
     "main": "src/index.js",
     "dependencies": {
-        "lodash": "^4.17.15",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "typescript": "^3.9.3"

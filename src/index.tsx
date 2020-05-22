@@ -1,5 +1,4 @@
 import React, { useReducer, useState, createContext, useEffect, useMemo, ReactElement, FC } from 'react';
-import reduce from 'lodash/reduce';
 
 export function combineReducers(reducers) {
     return (state = {}, action) => {
@@ -23,15 +22,10 @@ export function withContext(
 ): FC {
     return (props: any): ReactElement => {
         const Consumer = ({ context }: any): ReactElement => {
-            const contextProps = reduce(
-                selectors,
-                (acc: any, selector: Selector, key: string): any => {
-                    const value = selector(context);
-                    acc[key] = value;
-                    return acc;
-                },
-                {},
-            );
+            const contextProps = {}
+            Object.keys(selectors).forEach(key => {
+                contextProps[key] = selectors[key](context)
+            })
             return useMemo(
                 (): ReactElement => <Component {...props} {...contextProps} />,
                 // eslint-disable-next-line react-hooks/exhaustive-deps
