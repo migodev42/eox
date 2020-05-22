@@ -1,6 +1,6 @@
 {
     "name": "@leoooy/eox",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "easy react state management based on hooks api.",
     "main": "src/index.js",
     "dependencies": {
