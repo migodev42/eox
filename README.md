@@ -16,6 +16,7 @@ You can find the Eox documentation [on the website](https://leoooy.github.io/eox
 /* context.js */
 import { createProvider } from 'eox';
 const { Provider, Context } = createProvider(reducers, initState);
+export { Provider, Context }
 
 /* APP.js */
 import { Provider } from 'context.js'
