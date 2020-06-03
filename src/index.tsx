@@ -1,6 +1,14 @@
 import React, { useReducer, useState, createContext, useEffect, useMemo, ReactElement, FC } from 'react';
 
-export function combineReducers(reducers) {
+interface ReducerAction {
+    type: String
+    data?: Object
+    [propName: string]: any;
+}
+interface combineReducersProps {
+    [propName: string]: React.Reducer<any, ReducerAction>;
+}
+export function combineReducers(reducers: combineReducersProps) {
     return (state = {}, action) => {
         const newState = {};
         for (let key in reducers) {
