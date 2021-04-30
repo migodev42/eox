@@ -1,65 +1,69 @@
-import React, { useReducer, useState, createContext, useEffect, useMemo, ReactElement, FC } from 'react';
-
+import React, {
+  useReducer,
+  useState,
+  createContext,
+  useEffect,
+  useMemo,
+  ReactElement,
+  FC,
+} from 'react';
 interface ReducerAction {
-    type: String
-    data?: Object
-    [propName: string]: any;
+  type: String;
+  data?: Object;
+  [propName: string]: any;
 }
 interface combineReducersProps {
-    [propName: string]: React.Reducer<any, ReducerAction>;
+  [propName: string]: React.Reducer<any, ReducerAction>;
 }
 export function combineReducers(reducers: combineReducersProps) {
-    return (state = {}, action) => {
-        const newState = {};
-        for (let key in reducers) {
-            newState[key] = reducers[key](state[key], action);
-        }
-        return newState;
+  return (state = {}, action) => {
+    const newState = {};
+    for (let key in reducers) {
+      newState[key] = reducers[key](state[key], action);
     }
+    return newState;
+  };
 }
 
 type Selector = (context: any) => any;
 interface SelectorObject {
-    [key: string]: Selector;
+  [key: string]: Selector;
 }
 /* https://github.com/facebook/react/issues/15156 */
 export function withContext(
-    Component: FC,
-    Context: any,
-    selectors: SelectorObject,
+  Component: FC,
+  Context: any,
+  selectors: SelectorObject
 ): FC {
-    return (props: any): ReactElement => {
-        const Consumer = ({ context }: any): ReactElement => {
-            const contextProps = {}
-            Object.keys(selectors).forEach(key => {
-                contextProps[key] = selectors[key](context)
-            })
-            return useMemo(
-                (): ReactElement => <Component {...props} {...contextProps} />,
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                [...Object.values(props), ...Object.values(contextProps)],
-            );
-        };
-        return (
-            <Context.Consumer>
-                {(context: any): ReactElement => <Consumer context={context} />}
-            </Context.Consumer>
-        );
+  return (props: any): ReactElement => {
+    const Consumer = ({ context }: any): ReactElement => {
+      const contextProps = {};
+      Object.keys(selectors).forEach((key) => {
+        contextProps[key] = selectors[key](context);
+      });
+      return useMemo(
+        (): ReactElement => <Component {...props} {...contextProps} />,
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [...Object.values(props), ...Object.values(contextProps)]
+      );
     };
-};
+    return (
+      <Context.Consumer>
+        {(context: any): ReactElement => <Consumer context={context} />}
+      </Context.Consumer>
+    );
+  };
+}
 
 export function createProvider(reducers, initState) {
-    const Context = createContext({})
+  const Context = createContext({});
 
-
-    return {
-        Provider: React.memo(({ children }) => {
-            const [state, dispatch] = useReducer(reducers, initState)
-            const store = useMemo(() => ({ state, dispatch }), [state]);
-            return <Context.Provider value={store} >
-                {children}
-            </Context.Provider >
-        }),
-        Context: Context,
-    }
+  return {
+    Provider: React.memo(({ children }) => {
+      const [state, dispatch] = useReducer(reducers, initState);
+      const store = useMemo(() => ({ state, dispatch }), [state]);
+      return <Context.Provider value={store}>{children}</Context.Provider>;
+    }),
+    Context: Context,
+  };
 }
