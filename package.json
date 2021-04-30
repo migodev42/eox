@@ -1,48 +1,57 @@
 {
-    "name": "@leoooy/eox",
-    "version": "0.0.4",
-    "description": "easy react state management based on hooks api.",
-    "main": "src/index.js",
-    "dependencies": {
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "typescript": "^3.9.3"
-    },
-    "devDependencies": {
-        "@types/react": "^16.9.35",
-        "@typescript-eslint/eslint-plugin": "^2.34.0",
-        "@typescript-eslint/parser": "^2.34.0",
-        "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^7.0.0",
-        "eslint-plugin-react": "^7.20.0",
-        "eslint-plugin-react-hooks": "^4.0.2",
-        "jest": "^26.0.1",
-        "rollup": "^2.46.0"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "eslint ./src/*"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/LeoooY/eox.git"
-    },
-    "keywords": [
-        "react",
-        "hooks",
-        "state",
-        "management"
-    ],
-    "author": "LeoooY",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/LeoooY/eox/issues"
-    },
-    "homepage": "https://github.com/LeoooY/eox#readme",
-    "private": false,
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+  "name": "@leoooy/eox",
+  "version": "0.0.4",
+  "description": "easy react state management based on hooks api.",
+  "main": "dist/lib/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/lib/src/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "jest": "^26.0.1",
+    "prettier": "^2.2.1",
+    "rollup": "^2.46.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src/*",
+    "build": "rollup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoooY/eox.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "state",
+    "management"
+  ],
+  "author": "LeoooY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeoooY/eox/issues"
+  },
+  "homepage": "https://github.com/LeoooY/eox#readme",
+  "private": false,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
+  }
 }
