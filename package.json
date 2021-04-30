@@ -12,6 +12,7 @@
         "@types/react": "^16.9.35",
         "@typescript-eslint/eslint-plugin": "^2.34.0",
         "@typescript-eslint/parser": "^2.34.0",
+        "cz-conventional-changelog": "^3.3.0",
         "eslint": "^7.0.0",
         "eslint-plugin-react": "^7.20.0",
         "eslint-plugin-react-hooks": "^4.0.2",
@@ -37,5 +38,10 @@
         "url": "https://github.com/LeoooY/eox/issues"
     },
     "homepage": "https://github.com/LeoooY/eox#readme",
-    "private": false
+    "private": false,
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
 }
