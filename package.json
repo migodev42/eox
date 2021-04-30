@@ -1,6 +1,6 @@
 {
   "name": "@leoooy/eox",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "easy react state management based on hooks api.",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
@@ -43,7 +43,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src/*",
-    "build": "cross-env rollup -c rollup.config.js"
+    "build": "cross-env rollup -c rollup.config.js",
+    "release": "npx standard-version"
   },
   "repository": {
     "type": "git",
